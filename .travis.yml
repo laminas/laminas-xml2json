@@ -1,5 +1,3 @@
-sudo: false
-
 language: php
 
 branches:
@@ -11,15 +9,15 @@ cache:
   directories:
     - $HOME/.composer/cache
     - $HOME/.local
-    - zf-mkdoc-theme
+    - laminas-mkdoc-theme
 
 env:
   global:
-    - SITE_URL=https://zendframework.github.io/zend-json-server
+    - SITE_URL=https://docs.laminas.dev/laminas-json-server
     - GH_USER_NAME="Matthew Weier O'Phinney"
     - GH_USER_EMAIL=matthew@weierophinney.net
-    - GH_REF=github.com/zendframework/zend-json-server.git
-    - secure: "KvztcHanoXLkqi+yL3o5el7ypu/jcyHqKy0VtOKGB483sg2wn6wJyAuVLBJscmzgazjPzQa57MBe9an7OOpuoJNPtE5m9huk41KByK2ibzMnC4F7D8lox5CUoV0jRaohYQmpZitbj/BKPlFbYaT42d+/R2o9CEQUJ4T3nYltzAydvB3T1CJE1u7HtZ8mB/Kgkfjqcyx+/bnmvmeGlwop4rDxHmEmrfApdWSUMSKUKjJqUlZt0ASpa2fJy3HL4don6WV1ufPcKVI7bQN1dkn+zZhW5zQ7PRg0hMEMxEMC8MLyLZvDXxL4rUmt2i3I0NtK6E357QdoX13NQKJZiH47jFpJA3DFQl2vE7Vu3kEkMqsrM2fbp9xTCyN9Gg5ZHueUd+iUxVCTy5Twlqt8MqBd2Z4tbljOsgBQkRuKxRg+JkNcWGM5RIWhA169nGY25867Bah/hh25blpsj77RVsvJdeUzAqCHWm5ey+2rNcUWbJXUK2nQdlonCLNsP0LweA5344GFFw+U+93btEw/5mpADbjhaYuZKXhMOcnqJgTGghxkp0cnExb7w5p6KxAsQ+E/C5X7RDwwhaTb6LUuKrTgar4/3RVUIqujdVVUntB1161S6Qnut1TqdaRHbgGOBSlCNWAB960icfdNbN+y4mtJZf9AVgvkoN8QGlncVPF+6GI="
+    - GH_REF=github.com/laminas/laminas-json-server.git
+    - secure: "KvztcHanoXLkqi+yL3o5el7ypu/jcyHqKy0VtOKGB483sg2wn6wJyAuVLBJscmzgazjPzQa57MBe9an7OOpuoJNPtE5m9huk41KByK2ibzMnC4F7D8lox5CUoV0jRaohYQmpZitbj/BKPlFbYaT42d+/R2o9CEQUJ4T3nYltzAydvB3T1CJE1u7HtZ8mB/Kgkfjqcyx+/bnmvmeGlwop4rDxHmEmrfApdWSUMSKUKjJqUlZt0ASpa2fJy3HL4don6WV1ufPcKVI7bQN1dkn+zZhW5zQ7PRg0hMEMxEMC8MLyLZvDXxL4rUmt2i3I0NtK6E357QdoX13NQKJZiH47jFpJA3DFQl2vE7Vu3kEkMqsrM2fbp9xTCyN9Gg5ZHueUd+iUxVCTy5Twlqt8MqBd2Z4tbljOsgBQkRuKxRg+JkNcWGM5RIWhA169nGY25867Bah/hh25blpsj77RVsvJdeUzAqCHWm5ey+2rNcUWbJXUK2nQdlonCLNsP0LweA5344GFFw+U+93btEw/5mpADbjhaYuZKXhMOcnqJgTGghxkp0cnExb7w5p6KxAsQ+E/C5X7RDwwhaTb6LUuKrTgar4/3RVUIqujdVVUntB1161S6Qnut1TqdaRHbgGOBSlCNWAB960icfdNbN+y4mtJLaminas9AVgvkoN8QGlncVPF+6GI="
 
 matrix:
   fast_finish: true
@@ -38,7 +36,6 @@ matrix:
     - php: hhvm
 
 notifications:
-  irc: "irc.freenode.org#zftalk.dev"
   email: false
 
 before_install:
@@ -53,10 +50,10 @@ script:
   - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then composer test-coverage ; fi
   - if [[ $EXECUTE_TEST_COVERALLS != 'true' ]]; then composer test ; fi
   - if [[ $EXECUTE_CS_CHECK == 'true' ]]; then composer cs-check ; fi
-  - if [[ $DEPLOY_DOCS == "true" && "$TRAVIS_TEST_RESULT" == "0" ]]; then wget -O theme-installer.sh "https://raw.githubusercontent.com/zendframework/zf-mkdoc-theme/master/theme-installer.sh" ; chmod 755 theme-installer.sh ; ./theme-installer.sh ; fi
+  - if [[ $DEPLOY_DOCS == "true" && "$TRAVIS_TEST_RESULT" == "0" ]]; then wget -O theme-installer.sh "https://raw.githubusercontent.com/laminas/laminas-mkdoc-theme/master/theme-installer.sh" ; chmod 755 theme-installer.sh ; ./theme-installer.sh ; fi
 
 after_success:
-  - if [[ $DEPLOY_DOCS == "true" ]]; then echo "Preparing to build and deploy documentation" ; ./zf-mkdoc-theme/deploy.sh ; echo "Completed deploying documentation" ; fi
+  - if [[ $DEPLOY_DOCS == "true" ]]; then echo "Preparing to build and deploy documentation" ; ./laminas-mkdoc-theme/deploy.sh ; echo "Completed deploying documentation" ; fi
 
 after_script:
   - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then composer upload-coverage ; fi

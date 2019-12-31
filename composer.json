@@ -1,13 +1,24 @@
 {
-    "name": "zendframework/zend-xml2json",
+    "name": "laminas/laminas-xml2json",
     "description": "Provides functionality for converting XML to JSON, optionally including XML attributes",
     "license": "BSD-3-Clause",
     "keywords": [
-        "zf2",
+        "laminas",
         "json",
         "xml"
     ],
-    "homepage": "https://github.com/zendframework/zend-xml2json",
+    "homepage": "https://laminas.dev",
+    "support": {
+        "docs": "https://docs.laminas.dev/laminas-xml2json/",
+        "issues": "https://github.com/laminas/laminas-xml2json/issues",
+        "source": "https://github.com/laminas/laminas-xml2json",
+        "rss": "https://github.com/laminas/laminas-xml2json/releases.atom",
+        "chat": "https://laminas.dev/chat",
+        "forum": "https://discourse.laminas.dev"
+    },
+    "config": {
+        "sort-packages": true
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "3.0-dev",
@@ -16,21 +27,22 @@
     },
     "require": {
         "php": "^5.5 || ^7.0",
-        "zendframework/zend-json": "^2.6.1 || ^3.0",
-        "zendframework/zendxml": "^1.0.2"
+        "laminas/laminas-json": "^2.6.1 || ^3.0",
+        "laminas/laminas-xml": "^1.0.2",
+        "laminas/laminas-zendframework-bridge": "^1.0"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^2.3",
-        "phpunit/PHPUnit": "~4.0"
+        "phpunit/phpunit": "~4.0",
+        "squizlabs/php_codesniffer": "^2.3"
     },
     "autoload": {
         "psr-4": {
-            "Zend\\Xml2Json\\": "src/"
+            "Laminas\\Xml2Json\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ZendTest\\Xml2Json\\": "test/"
+            "LaminasTest\\Xml2Json\\": "test/"
         }
     },
     "scripts": {
@@ -43,5 +55,8 @@
         "cs-fix": "phpcbf fix -v",
         "test": "phpunit",
         "test-coverage": "phpunit --coverage-clover clover.xml"
+    },
+    "replace": {
+        "zendframework/zend-xml2json": "self.version"
     }
 }
