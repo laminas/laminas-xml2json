@@ -28,7 +28,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- [#10](https://github.com/zendframework/zend-xml2json/pull/10) adds support for PHP 7.3.
+- [zendframework/zend-xml2json#10](https://github.com/zendframework/zend-xml2json/pull/10) adds support for PHP 7.3.
 
 ### Changed
 
@@ -54,7 +54,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Changed
 
-- [#8](https://github.com/zendframework/zend-xml2json/pull/8) ensures that tests against PHP 7.2 are not allowed to fail.
+- [zendframework/zend-xml2json#8](https://github.com/zendframework/zend-xml2json/pull/8) ensures that tests against PHP 7.2 are not allowed to fail.
 
 ### Deprecated
 
@@ -72,7 +72,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- [#5](https://github.com/zendframework/zend-xml2json/pull/5) adds support for
+- [zendframework/zend-xml2json#5](https://github.com/zendframework/zend-xml2json/pull/5) adds support for
   PHP 7.1 and 7.2.
 
 ### Changed
@@ -85,14 +85,14 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- [#1](https://github.com/zendframework/zend-xml2json/pull/1) removes an
+- [zendframework/zend-xml2json#1](https://github.com/zendframework/zend-xml2json/pull/1) removes an
   obsolete `@deprecated` annotation.
 
-- [#5](https://github.com/zendframework/zend-xml2json/pull/5) removes support
+- [zendframework/zend-xml2json#5](https://github.com/zendframework/zend-xml2json/pull/5) removes support
   for PHP 5.5. The code likely still runs on that version, but we no longer
   support it.
 
-- [#5](https://github.com/zendframework/zend-xml2json/pull/5) removes support
+- [zendframework/zend-xml2json#5](https://github.com/zendframework/zend-xml2json/pull/5) removes support
   for HHVM.
 
 ### Fixed
@@ -102,7 +102,7 @@ All notable changes to this project will be documented in this file, in reverse 
 ## 3.0.0 - 2016-03-31
 
 First release as a standalone component. Previous versions were shipped as
-`Zend\Json\Json::toXml()` within the [zend-json](https://github.com/zendframework/zend-json)
+`Laminas\Json\Json::toXml()` within the [laminas-json](https://github.com/laminas/laminas-json)
 package.
 
 ### Added

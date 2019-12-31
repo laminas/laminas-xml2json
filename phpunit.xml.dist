@@ -4,7 +4,7 @@
          bootstrap="./vendor/autoload.php"
          colors="true">
     <testsuites>
-        <testsuite name="zend-xml2json">
+        <testsuite name="laminas-xml2json">
             <directory>./test/</directory>
         </testsuite>
     </testsuites>
