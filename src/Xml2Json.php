@@ -1,15 +1,16 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-xml2json for the canonical source repository
- * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
- * @license   https://github.com/zendframework/zend-xml2json/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminas/laminas-xml2json for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-xml2json/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-xml2json/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Xml2Json;
+namespace Laminas\Xml2Json;
 
+use Laminas\Json\Json;
+use Laminas\Xml\Security as XmlSecurity;
 use SimpleXMLElement;
-use Zend\Json\Json;
-use ZendXml\Security as XmlSecurity;
 
 /**
  * Class for translating XML to JSON.
@@ -39,7 +40,7 @@ class Xml2Json
      * recursive function; it then converts that array to json via
      * Json::encode().
      *
-     * NOTE: Encoding native javascript expressions via Zend\Json\Expr is not
+     * NOTE: Encoding native javascript expressions via Laminas\Json\Expr is not
      * possible.
      *
      * @param string $xmlStringContents XML String to be converted.
@@ -68,8 +69,8 @@ class Xml2Json
     /**
      * Return the value of an XML attribute text or the text between the XML tags.
      *
-     * In order to allow Zend\Json\Expr from XML, we check if the node matches
-     * the pattern, and, if so, we return a new Zend\Json\Expr instead of a
+     * In order to allow Laminas\Json\Expr from XML, we check if the node matches
+     * the pattern, and, if so, we return a new Laminas\Json\Expr instead of a
      * text node.
      *
      * @param SimpleXMLElement $simpleXmlElementObject
@@ -77,7 +78,7 @@ class Xml2Json
      */
     protected static function getXmlValue($simpleXmlElementObject)
     {
-        $pattern   = '/^[\s]*new Zend[_\\]Json[_\\]Expr[\s]*\([\s]*[\"\']{1}(.*)[\"\']{1}[\s]*\)[\s]*$/';
+        $pattern   = '/^[\s]*new Laminas[_\\]Json[_\\]Expr[\s]*\([\s]*[\"\']{1}(.*)[\"\']{1}[\s]*\)[\s]*$/';
         $matchings = [];
         $match     = preg_match($pattern, $simpleXmlElementObject, $matchings);
 
