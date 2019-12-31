@@ -1,9 +1,8 @@
 docs_dir: docs/book
 site_dir: docs/html
-pages:
+nav:
     - index.md
     - Usage: usage.md
-site_name: zend-xml2json
-site_description: Zend\Xml2Json
-repo_url: 'https://github.com/zendframework/zend-xml2json'
-copyright: 'Copyright (c) 2016-2017 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a>'
+site_name: laminas-xml2json
+site_description: Laminas\Xml2Json
+repo_url: 'https://github.com/laminas/laminas-xml2json'
