@@ -1,10 +1,10 @@
 docs_dir: docs/book
 site_dir: docs/html
 nav:
-    - { Home: index.md }
-    - { Usage: usage.md }
+    - Home: index.md
+    - Usage: usage.md
 site_name: laminas-xml2json
-site_description: 'Convert XML documents to JSON'
+site_description: "Convert XML documents to JSON"
 repo_url: 'https://github.com/laminas/laminas-xml2json'
 extra:
     project: Components
