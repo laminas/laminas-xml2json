@@ -1,6 +1,6 @@
 # laminas-xml2json
 
-[![Build Status](https://travis-ci.org/laminas/laminas-xml2json.svg?branch=master)](https://travis-ci.org/laminas/laminas-xml2json)
+[![Build Status](https://travis-ci.com/laminas/laminas-xml2json.svg?branch=master)](https://travis-ci.com/laminas/laminas-xml2json)
 [![Coverage Status](https://coveralls.io/repos/github/laminas/laminas-xml2json/badge.svg?branch=master)](https://coveralls.io/github/laminas/laminas-xml2json?branch=master)
 
 laminas-xml2json provides functionality for converting XML structures to JSON.
