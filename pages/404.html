@@ -6,10 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Convert XML documents to JSON">  
-    <link rel="canonical" href="https://docs.laminas.dev/usage/">
     <link rel="shortcut icon" href="/img/trademark-laminas-foundation-rgb.svg">
 
-    <title>Usage - laminas-xml2json - Laminas Docs</title>
+    <title>laminas-xml2json - Laminas Docs</title>
 
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -59,7 +58,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">laminas-xml2json</a>
+            <a href="../.">laminas-xml2json</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -73,8 +72,8 @@
                     
                     
                         
-                            <li class="subnavigation__list-item subnavigation__list-item--active">
-                                <a href="./" class="subnavigation__link">Usage</a>
+                            <li class="subnavigation__list-item ">
+                                <a href="../usage/" class="subnavigation__link">Usage</a>
                             </li>
                         
                     
@@ -139,164 +138,21 @@
         <div class="row">
             <div class="col-md-2 col-sm-12">
                 
-    
-
-    
-    
-        <div class="toc">
-            <h6 class="toc__headline">On this page</h6>
-            <ul class="toc__list">
-                
-                    <li class="toc__entry">
-                        <a href="#example" class="toc__link">Example</a>
-                    </li>
-                
-            </ul>
-        </div>
-    
-
             </div>
             <div class="col-md-7 col-sm-12 content" role="main" data-spy="scroll" data-target=".toc">
                 
-                    <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        
-            <li class="breadcrumb-item"><a href="">Overview</a></li>
 
-            
-                <li class="breadcrumb-item"><a href="..">laminas-xml2json</a></li>
+<h1 class="content__title">404</h1>
+<blockquote>
+    <h3>Something went wrong!</h3>
+    <p>
+        We're sorry, but the page you are looking for does not exist.
+    </p>
+</blockquote>
 
-                
-
-                <li class="breadcrumb-item active" aria-current="page">Usage</li>
-            
-        
-    </ol>
-</nav>
+<a href="../." class="btn btn-default" role="button">Go to homepage</a>
 
 
-
-
-
-
-    
-    
-
-    <h1 id="xml-to-json-conversion">XML to JSON conversion</h1>
-<p>laminas-xml2json provides a convenience method for transforming XML formatted data
-into JSON format.  This feature was inspired from an <a href="http://www.ibm.com/developerworks/xml/library/x-xml2jsonphp/">IBM developerWorks
-article</a>.</p>
-<p>laminas-xml2json provides the static method <code>Laminas\Xml2Json\Xml2Json::fromXml()</code>.
-This method will generate JSON from a given XML input. This method takes any
-arbitrary XML string as an input parameter, and optionally a boolean parameter
-to instruct the conversion logic as to whether or not to ignore XML attributes
-during the conversion process. If the optional flag for converting attributes is
-not provided, then the default behavior is to ignore the XML attributes.</p>
-<p>A basic example follows:</p>
-<pre class=codehilite><code class=language-php>$jsonContents = Laminas\Xml2Json\Xml2Json::fromXml($xmlStringContents, true);</code></pre>
-<p><code>Laminas\Xml2Json\Xml2Json::fromXml()</code> converts the XML formatted string input
-parameter and returns the equivalent JSON formatted string output. In case of an
-XML input format error or conversion logic error, it raises an exception.</p>
-<p>The conversion logic uses recursive techniques to traverse the XML tree,
-supporting up to 25 levels deep. Beyond that depth, it raises a
-<code>Laminas\Xml2Json\Exception\RecursionException</code>.</p>
-<h2 id="example">Example</h2>
-<p>The following example demonstrates both the XML input string passed to and the JSON
-output string returned from <code>Laminas\Xml2Json\Xml2Json::fromXml()</code>. This example
-passes a boolean false to the second argument in order to receive a
-representation of the XML attributes in the returned JSON.</p>
-<p>First, let's look at the XML:</p>
-<pre class=codehilite><code class=language-xml>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;books&gt;
-    &lt;book id=&quot;1&quot;&gt;
-        &lt;title&gt;Code Generation in Action&lt;/title&gt;
-        &lt;author&gt;&lt;first&gt;Jack&lt;/first&gt;&lt;last&gt;Herrington&lt;/last&gt;&lt;/author&gt;
-        &lt;publisher&gt;Manning&lt;/publisher&gt;
-    &lt;/book&gt;
-
-    &lt;book id=&quot;2&quot;&gt;
-        &lt;title&gt;PHP Hacks&lt;/title&gt;
-        &lt;author&gt;&lt;first&gt;Jack&lt;/first&gt;&lt;last&gt;Herrington&lt;/last&gt;&lt;/author&gt;
-        &lt;publisher&gt;O'Reilly&lt;/publisher&gt;
-    &lt;/book&gt;
-
-    &lt;book id=&quot;3&quot;&gt;
-        &lt;title&gt;Podcasting Hacks&lt;/title&gt;
-        &lt;author&gt;&lt;first&gt;Jack&lt;/first&gt;&lt;last&gt;Herrington&lt;/last&gt;&lt;/author&gt;
-        &lt;publisher&gt;O'Reilly&lt;/publisher&gt;
-    &lt;/book&gt;
-&lt;/books&gt;</code></pre>
-<p>Assuming that the above is captured in the variable <code>$xml</code>, we'll now pass it to
-the following code:</p>
-<pre class=codehilite><code class=language-php>// Passing the second parameter to ensure we get attributes as well.
-$json = Laminas\Xml2Json\Xml2Json::fromXml($xml, false);</code></pre>
-<p>This results in the following JSON:</p>
-<pre class=codehilite><code class=language-json>{
-   &quot;books&quot; : {
-      &quot;book&quot; : [ {
-         &quot;@attributes&quot; : {
-            &quot;id&quot; : &quot;1&quot;
-         },
-         &quot;title&quot; : &quot;Code Generation in Action&quot;,
-         &quot;author&quot; : {
-            &quot;first&quot; : &quot;Jack&quot;, &quot;last&quot; : &quot;Herrington&quot;
-         },
-         &quot;publisher&quot; : &quot;Manning&quot;
-      }, {
-         &quot;@attributes&quot; : {
-            &quot;id&quot; : &quot;2&quot;
-         },
-         &quot;title&quot; : &quot;PHP Hacks&quot;, &quot;author&quot; : {
-            &quot;first&quot; : &quot;Jack&quot;, &quot;last&quot; : &quot;Herrington&quot;
-         },
-         &quot;publisher&quot; : &quot;O'Reilly&quot;
-      }, {
-         &quot;@attributes&quot; : {
-            &quot;id&quot; : &quot;3&quot;
-         },
-         &quot;title&quot; : &quot;Podcasting Hacks&quot;, &quot;author&quot; : {
-            &quot;first&quot; : &quot;Jack&quot;, &quot;last&quot; : &quot;Herrington&quot;
-         },
-         &quot;publisher&quot; : &quot;O'Reilly&quot;
-      }
-   ]}
-}</code></pre>
-
-
-
-
-    <nav>
-    <ul class="page-nav hidden-print">
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="..">
-                    <i class="fa fa-chevron-left"></i> Previous
-                </a>
-            
-        </li>
-
-        
-        <li class="page-nav__item">
-            
-        </li>
-    </ul>
-</nav>
-
-
-
-
-    <div class="help-wanted">
-        <p>
-            Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/laminas/laminas-xml2json/edit/master/docs/book/usage.md" target="_blank" class="help-wanted__link">
-                Edit this page on GitHub!
-            </a>
-        </p>
-    </div>
-
-                
             </div>
             <div class="col-md-3 col-sm-12 sidebar">
                 
@@ -311,7 +167,7 @@ $json = Laminas\Xml2Json\Xml2Json::fromXml($xml, false);</code></pre>
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">laminas-xml2json</a>
+            <a href="../.">laminas-xml2json</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -325,8 +181,8 @@ $json = Laminas\Xml2Json\Xml2Json::fromXml($xml, false);</code></pre>
                     
                     
                         
-                            <li class="subnavigation__list-item subnavigation__list-item--active">
-                                <a href="./" class="subnavigation__link">Usage</a>
+                            <li class="subnavigation__list-item ">
+                                <a href="../usage/" class="subnavigation__link">Usage</a>
                             </li>
                         
                     
