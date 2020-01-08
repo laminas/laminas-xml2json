@@ -8,4 +8,3 @@ site_description: "Convert XML documents to JSON"
 repo_url: 'https://github.com/laminas/laminas-xml2json'
 extra:
     project: Components
-    project_url: 'https://docs.laminas.dev'
