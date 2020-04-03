@@ -252,7 +252,8 @@ to instruct the conversion logic as to whether or not to ignore XML attributes
 during the conversion process. If the optional flag for converting attributes is
 not provided, then the default behavior is to ignore the XML attributes.</p>
 <p>A basic example follows:</p>
-<pre class=codehilite><code class=language-php>$jsonContents = Laminas\Xml2Json\Xml2Json::fromXml($xmlStringContents, true);</code></pre>
+<pre class="highlight"><code class="language-php">$jsonContents = Laminas\Xml2Json\Xml2Json::fromXml($xmlStringContents, true);</code></pre>
+
 <p><code>Laminas\Xml2Json\Xml2Json::fromXml()</code> converts the XML formatted string input
 parameter and returns the equivalent JSON formatted string output. In case of an
 XML input format error or conversion logic error, it raises an exception.</p>
@@ -265,58 +266,60 @@ output string returned from <code>Laminas\Xml2Json\Xml2Json::fromXml()</code>. T
 passes a boolean false to the second argument in order to receive a
 representation of the XML attributes in the returned JSON.</p>
 <p>First, let's look at the XML:</p>
-<pre class=codehilite><code class=language-xml>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<pre class="highlight"><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;books&gt;
-    &lt;book id=&quot;1&quot;&gt;
+    &lt;book id="1"&gt;
         &lt;title&gt;Code Generation in Action&lt;/title&gt;
         &lt;author&gt;&lt;first&gt;Jack&lt;/first&gt;&lt;last&gt;Herrington&lt;/last&gt;&lt;/author&gt;
         &lt;publisher&gt;Manning&lt;/publisher&gt;
     &lt;/book&gt;
 
-    &lt;book id=&quot;2&quot;&gt;
+    &lt;book id="2"&gt;
         &lt;title&gt;PHP Hacks&lt;/title&gt;
         &lt;author&gt;&lt;first&gt;Jack&lt;/first&gt;&lt;last&gt;Herrington&lt;/last&gt;&lt;/author&gt;
         &lt;publisher&gt;O'Reilly&lt;/publisher&gt;
     &lt;/book&gt;
 
-    &lt;book id=&quot;3&quot;&gt;
+    &lt;book id="3"&gt;
         &lt;title&gt;Podcasting Hacks&lt;/title&gt;
         &lt;author&gt;&lt;first&gt;Jack&lt;/first&gt;&lt;last&gt;Herrington&lt;/last&gt;&lt;/author&gt;
         &lt;publisher&gt;O'Reilly&lt;/publisher&gt;
     &lt;/book&gt;
 &lt;/books&gt;</code></pre>
+
 <p>Assuming that the above is captured in the variable <code>$xml</code>, we'll now pass it to
 the following code:</p>
-<pre class=codehilite><code class=language-php>// Passing the second parameter to ensure we get attributes as well.
+<pre class="highlight"><code class="language-php">// Passing the second parameter to ensure we get attributes as well.
 $json = Laminas\Xml2Json\Xml2Json::fromXml($xml, false);</code></pre>
+
 <p>This results in the following JSON:</p>
-<pre class=codehilite><code class=language-json>{
-   &quot;books&quot; : {
-      &quot;book&quot; : [ {
-         &quot;@attributes&quot; : {
-            &quot;id&quot; : &quot;1&quot;
+<pre class="highlight"><code class="language-json">{
+   "books" : {
+      "book" : [ {
+         "@attributes" : {
+            "id" : "1"
          },
-         &quot;title&quot; : &quot;Code Generation in Action&quot;,
-         &quot;author&quot; : {
-            &quot;first&quot; : &quot;Jack&quot;, &quot;last&quot; : &quot;Herrington&quot;
+         "title" : "Code Generation in Action",
+         "author" : {
+            "first" : "Jack", "last" : "Herrington"
          },
-         &quot;publisher&quot; : &quot;Manning&quot;
+         "publisher" : "Manning"
       }, {
-         &quot;@attributes&quot; : {
-            &quot;id&quot; : &quot;2&quot;
+         "@attributes" : {
+            "id" : "2"
          },
-         &quot;title&quot; : &quot;PHP Hacks&quot;, &quot;author&quot; : {
-            &quot;first&quot; : &quot;Jack&quot;, &quot;last&quot; : &quot;Herrington&quot;
+         "title" : "PHP Hacks", "author" : {
+            "first" : "Jack", "last" : "Herrington"
          },
-         &quot;publisher&quot; : &quot;O'Reilly&quot;
+         "publisher" : "O'Reilly"
       }, {
-         &quot;@attributes&quot; : {
-            &quot;id&quot; : &quot;3&quot;
+         "@attributes" : {
+            "id" : "3"
          },
-         &quot;title&quot; : &quot;Podcasting Hacks&quot;, &quot;author&quot; : {
-            &quot;first&quot; : &quot;Jack&quot;, &quot;last&quot; : &quot;Herrington&quot;
+         "title" : "Podcasting Hacks", "author" : {
+            "first" : "Jack", "last" : "Herrington"
          },
-         &quot;publisher&quot; : &quot;O'Reilly&quot;
+         "publisher" : "O'Reilly"
       }
    ]}
 }</code></pre>
