@@ -9,6 +9,7 @@
 namespace LaminasTest\Xml2Json;
 
 use Laminas\Json\Json;
+use Laminas\Xml2Json\Exception\RecursionException;
 use Laminas\Xml2Json\Xml2Json;
 use PHPUnit\Framework\TestCase;
 
@@ -345,7 +346,7 @@ EOT;
         $this->assertNotNull($phpArray, 'Null result received for XML containing inline CDATA');
 
         // Test for one of the expected CDATA fields in the JSON result.
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Lois & Clark',
             $phpArray['tvshows']['show'][1]['name'],
             'The CDATA name converted from XML is incorrect'
@@ -413,14 +414,14 @@ EOT;
         $this->assertNotNull($phpArray, 'Null result received for XML containing multiline CDATA');
 
         // Test for one of the expected fields in the JSON result.
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Laminas',
             $phpArray['demo']['framework']['name'],
             'The framework name field converted from XML is incorrect'
         );
 
         // Test for one of the expected CDATA fields in the JSON result.
-        $this->assertContains(
+        $this->assertStringContainsString(
             'echo getMovies()->asXML();',
             $phpArray['demo']['listing']['code'],
             'The CDATA code converted from XML is incorrect'
@@ -459,6 +460,7 @@ EOT;
      */
     public function testNestingDepthIsHandledProperlyWhenNestingDepthExceedsMaximum($xmlStringContents)
     {
+        $this->expectException(RecursionException::class);
         Xml2Json::$maxRecursionDepthAllowed = 1;
         Xml2Json::fromXml($xmlStringContents, true);
     }

@@ -1,3 +1,4 @@
+/.idea/
 /clover.xml
 /composer.lock
 /coveralls-upload.json
@@ -5,4 +6,5 @@
 /laminas-mkdoc-theme.tgz
 /laminas-mkdoc-theme/
 /phpunit.xml
+/.phpunit.result.cache
 /vendor/
