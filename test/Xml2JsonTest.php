@@ -456,9 +456,8 @@ EOT;
     /**
      * @group Laminas-11385
      * @dataProvider providerNestingDepthIsHandledProperly
-     * @param $xmlStringContents
      */
-    public function testNestingDepthIsHandledProperlyWhenNestingDepthExceedsMaximum($xmlStringContents)
+    public function testNestingDepthIsHandledProperlyWhenNestingDepthExceedsMaximum(string $xmlStringContents)
     {
         $this->expectException(RecursionException::class);
         Xml2Json::$maxRecursionDepthAllowed = 1;
@@ -468,9 +467,8 @@ EOT;
     /**
      * @group Laminas-11385
      * @dataProvider providerNestingDepthIsHandledProperly
-     * @param $xmlStringContents
      */
-    public function testNestingDepthIsHandledProperlyWhenNestingDepthDoesNotExceedMaximum($xmlStringContents)
+    public function testNestingDepthIsHandledProperlyWhenNestingDepthDoesNotExceedMaximum(string $xmlStringContents)
     {
         Xml2Json::$maxRecursionDepthAllowed = 25;
         $jsonString                         = Xml2Json::fromXml($xmlStringContents, true);

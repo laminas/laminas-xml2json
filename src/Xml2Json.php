@@ -115,7 +115,7 @@ class Xml2Json
      * @param bool $ignoreXmlAttributes
      * @param int $recursionDepth
      * @return array
-     * @Throws Exception\RecursionException if the XML tree is deeper than the
+     * @throws Exception\RecursionException if the XML tree is deeper than the
      *     allowed limit.
      */
     protected static function processXml(SimpleXMLElement $simpleXmlElementObject, bool $ignoreXmlAttributes, $recursionDepth = 0): array
