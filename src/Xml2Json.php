@@ -111,15 +111,15 @@ class Xml2Json
      * calling a recursive function in this class; once all XML elements are
      * stored to a PHP array, it is returned to the caller.
      *
-     * @param SimpleXMLElement $simpleXmlElementObject
-     * @param bool $ignoreXmlAttributes
      * @param int $recursionDepth
-     * @return array
-     * @throws Exception\RecursionException if the XML tree is deeper than the
+     * @throws Exception\RecursionException If the XML tree is deeper than the
      *     allowed limit.
      */
-    protected static function processXml(SimpleXMLElement $simpleXmlElementObject, bool $ignoreXmlAttributes, $recursionDepth = 0): array
-    {
+    protected static function processXml(
+        SimpleXMLElement $simpleXmlElementObject,
+        bool $ignoreXmlAttributes,
+        $recursionDepth = 0
+    ): array {
         // Keep an eye on how deeply we are involved in recursion.
         if ($recursionDepth > static::$maxRecursionDepthAllowed) {
             // XML tree is too deep. Exit now by throwing an exception.
