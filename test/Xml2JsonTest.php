@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\Xml2Json;
 
 use Laminas\Json\Json;
