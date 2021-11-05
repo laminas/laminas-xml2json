@@ -82,7 +82,7 @@ class Xml2Json
     {
         $pattern   = '/^[\s]*new Laminas[_\\]Json[_\\]Expr[\s]*\([\s]*[\"\']{1}(.*)[\"\']{1}[\s]*\)[\s]*$/';
         $matchings = [];
-        $match     = preg_match($pattern, $simpleXmlElementObject, $matchings);
+        $match     = preg_match($pattern, (string) $simpleXmlElementObject, $matchings);
 
         if ($match) {
             return new Expr($matchings[1]);
