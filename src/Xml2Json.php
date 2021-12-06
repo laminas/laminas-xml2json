@@ -1,10 +1,6 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-xml2json for the canonical source repository
- * @copyright https://github.com/laminas/laminas-xml2json/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-xml2json/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
 
 namespace Laminas\Xml2Json;
 
@@ -84,15 +80,16 @@ class Xml2Json
      */
     protected static function getXmlValue($simpleXmlElementObject)
     {
+        $value     = strval($simpleXmlElementObject);
         $pattern   = '/^[\s]*new Laminas[_\\]Json[_\\]Expr[\s]*\([\s]*[\"\']{1}(.*)[\"\']{1}[\s]*\)[\s]*$/';
         $matchings = [];
-        $match     = preg_match($pattern, $simpleXmlElementObject, $matchings);
+        $match     = preg_match($pattern, $value, $matchings);
 
         if ($match) {
             return new Expr($matchings[1]);
         }
 
-        return trim(strval($simpleXmlElementObject));
+        return trim($value);
     }
 
     /**

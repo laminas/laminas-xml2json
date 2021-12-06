@@ -26,8 +26,8 @@
         "laminas/laminas-xml": "^1.3"
     },
     "require-dev": {
-        "laminas/laminas-coding-standard": "~2.0.0",
-        "phpunit/phpunit": "^9.4.4"
+        "laminas/laminas-coding-standard": "^2.3",
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
